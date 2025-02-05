@@ -14,13 +14,23 @@
 
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
-repos:
--   repo: git://github.com/Bahjat/pre-commit-golang
-    rev: master
-    hooks:
-    -   id: go-fmt-import
-    -   id: go-vet
-    -   id: go-lint
-    -   id: go-unit-tests
-    -   id: go-err-check
+exclude: "doc|research|demos"
 
+repos:
+  - repo: https://github.com/Bahjat/pre-commit-golang
+    rev: v1.0.2
+    hooks:
+      - id: go-fmt-import
+      - id: go-vet
+      - id: go-lint
+      - id: go-unit-tests
+      - id: go-err-check
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: detect-private-key
