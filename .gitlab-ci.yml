@@ -1,0 +1,35 @@
+include:
+  - project: ccx/ccx-gitlab-includes
+    ref: master
+    file: /ccx-lib.yml
+
+stages:
+  - lint
+  # - test
+  # - covcheck
+  # - deploy
+
+golint:
+  stage: lint
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  
+  parallel:
+    matrix:
+      - GOLANG_VERSION: ["1.22", "1.23"]
+        LINT_TARGET: ["fmt", "lint", "vet", "gocyclo", "goconst", "gosec", "abcgo"]
+
+  image: quay.io/projectquay/golang:${GOLANG_VERSION}
+  script:
+    - make ${LINT_TARGET}
+
+shellcheck:
+  stage: lint
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+  image: quay.io/ccxdev/ccx-builder-go
+  script:
+    - make shellcheck

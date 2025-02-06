@@ -18,6 +18,7 @@ COLORS_RESET=$(tput sgr0) # No Color
 LOG_LEVEL="fatal"
 VERBOSE=false
 
+# shellcheck disable=SC2317
 function cleanup() {
     print_descendent_pids() {
         pids=$(pgrep -P "$1")

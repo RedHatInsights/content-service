@@ -19,6 +19,7 @@
 
 set -exv
 
+# shellcheck disable=SC2317
 function clean_up() {
     rm -rf "$CLONE_TEMP_DIR"
 }
@@ -52,20 +53,23 @@ fi
 echo "Attempting to clone repository into ${CLONE_TEMP_DIR}"
 if ! git clone --depth=1 --branch "${CCX_RULES_OCP_TAG}" "${RULES_REPO}" "${CLONE_TEMP_DIR}"
 then
+    retval=$?
     echo "Couldn't clone rules repository"
-    exit $?
+    exit $retval
 fi
 
 if ! rm -rf "${CONTENT_DIR}"
 then
+    retval=$?
     echo "Couldn't remove previous content"
-    exit $?
+    exit $retval
 fi
 
 if ! mv "${RULES_CONTENT}" "${CONTENT_DIR}"
 then
+    retval=$?
     echo "Couldn't move rules content from cloned repository"
-    exit $?
+    exit $retval
 fi
 
 rm -rf "${CLONE_TEMP_DIR}"
