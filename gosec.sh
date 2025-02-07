@@ -13,6 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+GOPATH=$(go env GOPATH)
+export PATH=$GOPATH/bin:$PATH
+
 RED_BG=$(tput setab 1)
 GREEN_BG=$(tput setab 2)
 BLUE=$(tput setaf 4)

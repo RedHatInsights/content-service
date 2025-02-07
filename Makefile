@@ -37,7 +37,7 @@ vet: ## Run go vet. Report likely mistakes in source code
 	@echo "Running go vet"
 	./govet.sh
 
-cyclo: ## Run gocyclo
+gocyclo: ## Run gocyclo
 	@echo "Running gocyclo"
 	./gocyclo.sh
 
@@ -46,7 +46,7 @@ ineffassign: ## Run ineffassign checker
 	./ineffassign.sh
 
 shellcheck: ## Run shellcheck
-	shellcheck --exclude=SC1090,SC2086,SC2034,SC1091 $(shell find . -name "*.sh")
+	./shellcheck.sh
 
 errcheck: ## Run errcheck
 	@echo "Running errcheck"
