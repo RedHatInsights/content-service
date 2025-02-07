@@ -28,6 +28,11 @@ function cleanup() {
         done
     }
 
+    if [ -n "$GITLAB_CI" ]; then
+        echo "Running in CI, exiting"
+        exit 0
+    fi
+
     echo Exiting and killing all children...
     for pid in $(print_descendent_pids $$); do
         if ! kill "$pid" &>/dev/null; then
