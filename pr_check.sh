@@ -29,6 +29,9 @@ COMPONENTS="ccx-data-pipeline ccx-insights-results dvo-writer dvo-extractor insi
 COMPONENTS_W_RESOURCES="insights-content-service"  # component to keep
 CACHE_FROM_LATEST_IMAGE="true"
 DEPLOY_FRONTENDS="false"
+# Set the correct images for pull requests.
+# pr_check in pull requests still uses the old cloudservices images
+EXTRA_DEPLOY_ARGS="--set-parameter insights-content-service/IMAGE=quay.io/cloudservices/ccx-insights-content-service"
 
 export IQE_PLUGINS="ccx"
 # Run all pipeline and ui tests
