@@ -15,10 +15,13 @@
 
 set -exv
 
+export LANG=C
+
 # retrieve the latest tag set in repository
 version=$(git describe --always --tags --abbrev=0)
 
 buildtime=$(date)
+echo "BuildTime: $buildtime"
 branch=$(git rev-parse --abbrev-ref HEAD)
 commit=$(git rev-parse HEAD)
 

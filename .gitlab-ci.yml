@@ -14,7 +14,7 @@ golint:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  
+
   parallel:
     matrix:
       - GOLANG_VERSION: ["1.22", "1.23"]
@@ -39,7 +39,7 @@ golangci-lint:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  
+
   parallel:
     matrix:
       - GOLANG_VERSION: ["1.22", "1.23"]
@@ -61,12 +61,19 @@ gotest:
   parallel:
     matrix:
       - GOLANG_VERSION: ["1.22", "1.23"]
-  
+
+  variables:
+    GIT_DEPTH: 0
+
   image: quay.io/projectquay/golang:${GOLANG_VERSION}
   script:
     - git config --global --add safe.directory `pwd`
     - make test
     - ./check_coverage.sh
+
+  artifacts:
+    paths:
+      - insights-content-service
 
 openapi-check:
   stage: test
@@ -87,9 +94,55 @@ integration-tests:
   parallel:
     matrix:
       - GOLANG_VERSION: ["1.22", "1.23"]
-  
+
   image: quay.io/projectquay/golang:${GOLANG_VERSION}
   script:
     - git config --global --add safe.directory `pwd`
     - ./build.sh --test-rules-only
     - ./test.sh
+
+bdd-tests:
+  stage: test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+  image: quay.io/redhat-services-prod/obsint-processing-tenant/insights-behavioral-spec/insights-behavioral-spec:latest
+  variables:
+    PATH_TO_LOCAL_CONTENT_SERVICE: "$CI_PROJECT_DIR"
+    BDD_PATH: /insights-behavioral-spec
+    VIRTUAL_ENV: /insights-behavioral-spec-venv/
+
+  script:
+    - cd $BDD_PATH
+    - make insights-content-service-tests
+
+  after_script:
+    - cp -r "$BDD_PATH/logs/insights-content-service-tests" "$CI_PROJECT_DIR/logs"
+
+  needs:
+    - job: gotest
+      artifacts: true
+    - job: get-rules
+      artifacts: true
+
+  artifacts:
+    untracked: true
+    when: on_failure
+    paths:
+      - /tmp/content-service-log
+    expire_in: 1 week
+
+get-rules:
+  stage: test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  
+  image: quay.io/ccxdev/ccx-builder-go:latest
+  script:
+    - ./update_rules_content.sh
+  
+  artifacts:
+    paths:
+      - rules-content
