@@ -24,7 +24,11 @@ echo -e "${BLUE}Detecting ineffectual assignments in Go code${NC}"
 if ! [ -x "$(command -v ineffassign)" ]
 then
     echo -e "${BLUE}Installing ineffassign${NC}"
-    go install github.com/gordonklaus/ineffassign@latest
+    if ! go install github.com/gordonklaus/ineffassign@latest; then
+        echo -e "${RED_BG}[FAIL]${NC} Cannot install ineffassign"
+        exit 1
+    fi
+    echo -e "${BLUE}Installed ${NC}"
 fi
 
 if ! ineffassign ./...

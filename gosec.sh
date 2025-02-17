@@ -34,15 +34,11 @@ echo -e "${BLUE}Security issues detection${NC}"
 if ! [ -x "$(command -v gosec)" ]
 then
     echo -e "${BLUE}Installing ${NC}"
-    go install github.com/securego/gosec/v2/cmd/gosec@latest
-    # shellcheck disable=SC2181
-    if [ $? -eq 0 ]
-    then
-        echo -e "${BLUE}Installed ${NC}"
-    else
+    if ! go install github.com/securego/gosec/v2/cmd/gosec@latest; then
         echo -e "${RED_BG}[FAIL]${NC} Installation failure"
-        exit 2
+        exit 1
     fi
+    echo -e "${BLUE}Installed ${NC}"
 fi
 
 if ! gosec $GO_SEC_ARGS ./...

@@ -24,7 +24,10 @@ echo -e "${BLUE}Finding repeated strings that could be replaced by a constant${N
 if ! [ -x "$(command -v goconst)" ]
 then
     echo -e "${BLUE}Installing goconst${NC}"
-    go install github.com/jgautheron/goconst/cmd/goconst@latest
+    if ! go install github.com/jgautheron/goconst/cmd/goconst@latest; then
+        echo -e "${RED_BG}[FAIL]${NC} Cannot install goconst"
+        exit 1
+    fi
 fi
 
 if [[ $(goconst -min-occurrences=3 ./... | tee /dev/tty | wc -l) -ne 0 ]]
