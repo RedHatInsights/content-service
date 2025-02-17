@@ -25,7 +25,11 @@ echo -e "${BLUE}Finding functions and methods with high cyclomatic complexity${N
 if ! [ -x "$(command -v gocyclo)" ]
 then
     echo -e "${BLUE}Installing gocyclo${NC}"
-    pushd /tmp && go install github.com/fzipp/gocyclo/cmd/gocyclo@latest && popd || exit 1
+    if ! go install github.com/fzipp/gocyclo/cmd/gocyclo@latest; then
+        echo -e "${RED_BG}[FAIL]${NC} Cannot install gocyclo"
+        exit 1
+    fi
+    echo -e "${BLUE}Installed ${NC}"
 fi
 
 if ! gocyclo -over 13 -avg .

@@ -26,7 +26,11 @@ cd "$(dirname "$0")" || exit
 if ! [ -x "$(command -v golint)" ]
 then
     echo -e "${BLUE}Installing golint${NC}"
-    GO111MODULE=off go get golang.org/x/lint/golint 2> /dev/null
+    if ! go install golang.org/x/lint/golint@latest; then
+        echo -e "${RED_BG}[FAIL]${NC} Cannot install golint"
+        exit 1
+    fi
+    echo -e "${BLUE}Installed ${NC}"
 fi
 
 # shellcheck disable=SC2046
