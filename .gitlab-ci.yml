@@ -6,8 +6,7 @@ include:
 stages:
   - lint
   - test
-  # - covcheck
-  # - deploy
+  - docs
 
 golint:
   stage: lint
@@ -117,21 +116,11 @@ bdd-tests:
     - cd $BDD_PATH
     - make insights-content-service-tests
 
-  after_script:
-    - cp -r "$BDD_PATH/logs/insights-content-service-tests" "$CI_PROJECT_DIR/logs"
-
   needs:
     - job: gotest
       artifacts: true
     - job: get-rules
       artifacts: true
-
-  artifacts:
-    untracked: true
-    when: on_failure
-    paths:
-      - /tmp/content-service-log
-    expire_in: 1 week
 
 get-rules:
   stage: test
@@ -146,3 +135,20 @@ get-rules:
   artifacts:
     paths:
       - rules-content
+
+pages:
+  stage: docs
+  # rules:
+  #   - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+  image: registry.access.redhat.com/ubi9/ruby-31:latest
+  script:
+    - cd "$CI_PROJECT_DIR"/docs
+    - gem install bundler
+    - bundle config set path ~/.gem
+    - bundle install --no-cache
+    - bundle exec jekyll build -d "$CI_PROJECT_DIR"/public
+
+  artifacts:
+    paths:
+      - public
