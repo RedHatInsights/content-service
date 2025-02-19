@@ -138,10 +138,10 @@ get-rules:
 
 pages:
   stage: docs
-  # rules:
-  #   - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
 
-  image: registry.access.redhat.com/ubi9/ruby-31:latest
+  image: registry.access.redhat.com/ubi9/ruby-33:latest
   script:
     - cd "$CI_PROJECT_DIR"/docs
     - gem install bundler

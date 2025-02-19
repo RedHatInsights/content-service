@@ -4,21 +4,23 @@ baseurl: /content-service
 url: "https://ccx.pages.redhat.com"
 repository: "ccx/content-service"
 
-heading_anchors: true
-search_enabled: false
+# heading_anchors: true
+# search_enabled: false
 
 aux_links:
   "Gitlab repository":
     - "https://redhat.com/content-service"
 
-footer_content: "Copyright &copy; 2020 Red Hat, Inc.</a>"
+# footer_content: "Copyright &copy; 2020 Red Hat, Inc.</a>"
+
+theme: "just-the-docs"
 
 # Build settings
 # markdown: kramdown
-remote_theme: pmarsceill/just-the-docs
-plugins:
-  - jekyll-feed
-  - jekyll-remote-theme
+# remote_theme: pmarsceill/just-the-docs
+# plugins:
+#   - jekyll-feed
+  # - jekyll-remote-theme
 
 exclude:
   - Gemfile
