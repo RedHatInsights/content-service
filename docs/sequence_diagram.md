@@ -1,4 +1,5 @@
 ---
+title: Sequence diagram for Content Service
 layout: page
 nav_order: 2
 ---

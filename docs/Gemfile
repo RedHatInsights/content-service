@@ -26,10 +26,10 @@ gem "jekyll"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-seo-tag"
-  # gem "jekyll-remote-theme"
-end
+# group :jekyll_plugins do
+#   gem "jekyll-feed"
+#   gem "jekyll-seo-tag"
+# end
 
 gem "just-the-docs"
+gem 'jekyll-sass-converter', '~> 3.1.0'
