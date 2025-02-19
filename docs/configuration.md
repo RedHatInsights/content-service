@@ -1,4 +1,5 @@
 ---
+title: Configuration
 layout: page
 nav_order: 5
 ---

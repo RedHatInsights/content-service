@@ -1,4 +1,5 @@
 ---
+title: Rule content checker
 layout: page
 nav_order: 6
 ---
