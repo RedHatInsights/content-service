@@ -20,9 +20,9 @@ import (
 	"github.com/RedHatInsights/insights-operator-utils/tests/helpers"
 	types "github.com/RedHatInsights/insights-results-types"
 
-	"github.com/RedHatInsights/insights-content-service/content"
-	"github.com/RedHatInsights/insights-content-service/groups"
-	"github.com/RedHatInsights/insights-content-service/server"
+	"redhat.com/content-service/content"
+	"redhat.com/content-service/groups"
+	"redhat.com/content-service/server"
 )
 
 // APIRequest is a request to api to use in AssertAPIRequest

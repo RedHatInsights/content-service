@@ -19,7 +19,7 @@ package groups_test
 import (
 	"testing"
 
-	"github.com/RedHatInsights/insights-content-service/groups"
+	"redhat.com/content-service/groups"
 )
 
 // TestParseGroupConfigFileNonExistingFile check whether non existing file is detected properly

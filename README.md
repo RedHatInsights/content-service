@@ -1,14 +1,7 @@
 # Insights Content Service
 
 [![forthebadge made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
-[![GoDoc](https://godoc.org/github.com/RedHatInsights/insights-content-service?status.svg)](https://godoc.org/github.com/RedHatInsights/insights-content-service)
-[![GitHub Pages](https://img.shields.io/badge/%20-GitHub%20Pages-informational)](https://redhatinsights.github.io/insights-content-service/)
-[![Go Report Card](https://goreportcard.com/badge/github.com/RedHatInsights/insights-content-service)](https://goreportcard.com/report/github.com/RedHatInsights/insights-content-service)
-[![Build Status](https://ci.ext.devshift.net/buildStatus/icon?job=RedHatInsights-insights-content-service-gh-build-master)](https://ci.ext.devshift.net/job/RedHatInsights-insights-content-service-gh-build-master/)
-[![Build Status](https://travis-ci.org/RedHatInsights/insights-content-service.svg?branch=master)](https://travis-ci.org/RedHatInsights/insights-content-service)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/RedHatInsights/insights-content-service)
-[![codecov](https://codecov.io/gh/RedHatInsights/insights-content-service/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/insights-content-service)
-[![License](https://img.shields.io/badge/license-Apache-blue)](https://github.com/RedHatInsights/insights-content-service/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache-blue)](https://redhat.com/content-service/-/blob/master/LICENSE)
 
 Content service for Insights rules groups, tags, and content.
 
@@ -35,8 +28,8 @@ remmediations, tags and also groups, that will be consumed primarily by
 
 ## Documentation
 
-Documentation is hosted on Github Pages <https://redhatinsights.github.io/insights-content-service/>.
-Sources are located in [docs](https://github.com/RedHatInsights/insights-content-service/tree/master/docs).
+Documentation is hosted on CEE Gitlab Pages <https://ccx.pages.redhat.com/content-service/>.
+Sources are located in [docs](https://redhat.com/content-service/-/tree/master/docs?ref_type=heads).
 
 ## Usage
 
