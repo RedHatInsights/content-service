@@ -53,6 +53,8 @@ golangci-lint:
 
 gotest:
   stage: test
+  tags:
+    - shared
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
@@ -102,6 +104,8 @@ integration-tests:
 
 bdd-tests:
   stage: test
+  tags:
+    - shared
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
@@ -124,14 +128,16 @@ bdd-tests:
 
 get-rules:
   stage: test
+  tags:
+    - shared
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  
+
   image: quay.io/ccxdev/ccx-builder-go:latest
   script:
     - ./update_rules_content.sh
-  
+
   artifacts:
     paths:
       - rules-content
