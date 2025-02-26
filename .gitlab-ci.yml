@@ -72,7 +72,7 @@ gotest:
 
   artifacts:
     paths:
-      - insights-content-service
+      - content-service
 
 openapi-check:
   stage: test
@@ -127,11 +127,11 @@ get-rules:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  
+
   image: quay.io/ccxdev/ccx-builder-go:latest
   script:
     - ./update_rules_content.sh
-  
+
   artifacts:
     paths:
       - rules-content

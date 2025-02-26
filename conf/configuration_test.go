@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/RedHatInsights/insights-content-service/conf"
+	"redhat.com/content-service/conf"
 )
 
 func init() {

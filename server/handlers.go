@@ -25,7 +25,7 @@ import (
 	"github.com/RedHatInsights/insights-operator-utils/responses"
 	"github.com/rs/zerolog/log"
 
-	"github.com/RedHatInsights/insights-content-service/groups"
+	"redhat.com/content-service/groups"
 )
 
 // mainEndpoint will handle the requests for / endpoint

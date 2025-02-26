@@ -6,8 +6,6 @@ For docstrings we're following [Effective Go - Commentary](https://golang.org/do
 
 All methods meant to be used by end-user *must be* documented - **no exceptions!**
 
-Other code quality metrics are measured as well via [Go Report Card](https://goreportcard.com/report/github.com/RedHatInsights/insights-content-service)
-
 Please, don't forget to call `make before_commit` to check style, run unit and integration tests and add license headers to new files
 
 ### Naming conventions

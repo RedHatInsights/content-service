@@ -27,7 +27,7 @@ import (
 
 	"github.com/verdverm/frisby"
 
-	tests "github.com/RedHatInsights/insights-content-service/tests/rest"
+	tests "redhat.com/content-service/tests/rest"
 )
 
 func main() {

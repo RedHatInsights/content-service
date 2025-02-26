@@ -30,8 +30,8 @@ services-ccx-data-pipeline/insights-content-service:c31d132/github.com/OneOfOne/
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/PuerkitoBio/goquery-1.5.1
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/cloudwatch-0.0.0-20200512151223-b0b55757a24b
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/cloudwatch-0.0.0-20210111105023-1df2bdfe3291
-services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/insights-content-service-0.0.0
-services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/insights-content-service-0.0.0-20200619153839-23a428468a08
+services-ccx-data-pipeline/insights-content-service:c31d132/redhat.com/content-service-0.0.0
+services-ccx-data-pipeline/insights-content-service:c31d132/redhat.com/content-service-0.0.0-20200619153839-23a428468a08
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/insights-operator-utils-1.0.1
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/insights-operator-utils-1.0.2-0.20200610143236-c868b2f93d2a
 services-ccx-data-pipeline/insights-content-service:c31d132/github.com/RedHatInsights/insights-operator-utils-1.12.0

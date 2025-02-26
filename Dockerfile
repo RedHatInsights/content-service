@@ -25,12 +25,12 @@ RUN curl -ksL https://certs.corp.redhat.com/certs/2015-IT-Root-CA.pem -o /etc/pk
     umask 0022 && \
     git config --global --add safe.directory /opt/app-root/src && \
     make build && \
-    chmod a+x insights-content-service && \
+    chmod a+x content-service && \
     ./update_rules_content.sh
 
 FROM registry.access.redhat.com/ubi9/ubi-micro:latest
 
-COPY --from=builder /opt/app-root/src/insights-content-service .
+COPY --from=builder /opt/app-root/src/content-service .
 COPY --from=builder /opt/app-root/src/openapi.json /openapi/openapi.json
 COPY --from=builder /opt/app-root/src/groups_config.yaml /groups/groups_config.yaml
 
@@ -43,4 +43,4 @@ COPY --from=builder /etc/pki /etc/pki
 
 USER 1001
 
-CMD ["/insights-content-service"]
+CMD ["/content-service"]

@@ -1,4 +1,4 @@
-module github.com/RedHatInsights/insights-content-service
+module redhat.com/content-service
 
 go 1.20
 

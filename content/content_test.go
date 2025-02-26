@@ -26,7 +26,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/RedHatInsights/insights-content-service/content"
+	"redhat.com/content-service/content"
 )
 
 const errYAMLBadToken = "yaml: line 14: found character that cannot start any token"
