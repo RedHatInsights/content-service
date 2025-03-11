@@ -23,6 +23,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"regexp"
 
 	"github.com/RedHatInsights/insights-operator-utils/collections"
 	ctypes "github.com/RedHatInsights/insights-results-types"
@@ -118,12 +119,29 @@ func readFilesIntoFileContent(baseDir string, filelist []string) (map[string][]b
 	return filesContent, nil
 }
 
+// checkErrorKeyNameFormat checks format of the error key name
+func checkErrorKeyNameFormat(errorKeyName string) (valid bool) {
+	valid = true
+
+	errorCodeValidator := regexp.MustCompile(`^([a-zA-Z_0-9.]+)$`)
+	isErrorKeyValid := errorCodeValidator.MatchString(errorKeyName)
+	if !isErrorKeyValid {
+		log.Error().Msgf("Error key `%v` is not of correct format: 'ERRORKEY'", errorKeyName)
+		valid = false
+	}
+	return
+}
+
 // checkErrorKeysForMandatoryContent iterates over filenames defined in the mandatory files array; ensures all error keys have the attribute set
 func checkErrorKeysForMandatoryContent(errorKeys map[string]RuleErrorKeyContent) (valid bool) {
 	valid = true
 
 	for _, mandatoryFile := range MandatoryRuleWideContentFiles {
 		for errorKeyName, errorKey := range errorKeys {
+			if !checkErrorKeyNameFormat(errorKeyName) {
+				valid = false
+			}
+
 			// all error keys must have these attributes
 			switch mandatoryFile {
 			case GenericMarkdown:
