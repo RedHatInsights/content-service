@@ -58,6 +58,32 @@ func TestContentParseOK(t *testing.T) {
 	assert.True(t, r.Loaded, "'rule1' rule parsing content attribute")
 }
 
+// TestOKErrorKey checks that the error key in correct format does not log an error
+func TestOKErrorKey(t *testing.T) {
+	var buffer bytes.Buffer
+	log.Logger = zerolog.New(&buffer)
+
+	_, _, err := content.ParseRuleContentDir("../tests/content/ok/")
+	helpers.FailOnError(t, err)
+
+	logOutput := buffer.String()
+	expectedMsg := "Error key `err_key` is not of correct format: 'ERRORKEY'"
+	assert.NotContains(t, logOutput, expectedMsg)
+}
+
+// TestOKBadErrorKey checks that the error key in incorrect format logs an error
+func TestBadErrorKey(t *testing.T) {
+	var buffer bytes.Buffer
+	log.Logger = zerolog.New(&buffer)
+
+	_, _, err := content.ParseRuleContentDir("../tests/content/bad_error_key/")
+	helpers.FailOnError(t, err)
+
+	logOutput := buffer.String()
+	expectedMsg := "Error key `err-key` is not of correct format: 'ERRORKEY'"
+	assert.Contains(t, logOutput, expectedMsg)
+}
+
 // TestContentParseOKNoContent checks that parsing content when there is no rule
 // content available, but the file structure is otherwise okay, succeeds.
 func TestContentParseOKNoContent(t *testing.T) {
