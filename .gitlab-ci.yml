@@ -16,10 +16,9 @@ golint:
 
   parallel:
     matrix:
-      - GOLANG_VERSION: ["1.22", "1.23"]
-        LINT_TARGET: ["fmt", "lint", "vet", "gocyclo", "goconst", "gosec", "abcgo"]
+      - LINT_TARGET: ["fmt", "lint", "vet", "gocyclo", "goconst", "gosec", "abcgo"]
 
-  image: quay.io/projectquay/golang:${GOLANG_VERSION}
+  image: quay.io/projectquay/golang:1.23
   script:
     - make ${LINT_TARGET}
 
@@ -39,14 +38,10 @@ golangci-lint:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
 
-  parallel:
-    matrix:
-      - GOLANG_VERSION: ["1.22", "1.23"]
-
   variables:
     GOFLAGS: -buildvcs=false
 
-  image: quay.io/projectquay/golang:${GOLANG_VERSION}
+  image: quay.io/projectquay/golang:1.23
   script:
     - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /usr/local/bin latest
     - golangci-lint run --timeout=3m
@@ -59,7 +54,7 @@ gotest:
 
   parallel:
     matrix:
-      - GOLANG_VERSION: ["1.22", "1.23"]
+      - GOLANG_VERSION: ["1.23", "1.24"]
 
   variables:
     GIT_DEPTH: 0
@@ -92,7 +87,7 @@ integration-tests:
 
   parallel:
     matrix:
-      - GOLANG_VERSION: ["1.22", "1.23"]
+      - GOLANG_VERSION: ["1.23", "1.24"]
 
   image: quay.io/projectquay/golang:${GOLANG_VERSION}
   script:
