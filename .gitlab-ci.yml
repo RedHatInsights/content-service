@@ -14,7 +14,7 @@ golint-abcgo:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
 
-  image: quay.io/projectquay/golang:1.23
+  image: quay.io/projectquay/golang:1.24
   script:
     - make abcgo
 
@@ -37,7 +37,7 @@ golangci-lint:
   variables:
     GOFLAGS: -buildvcs=false
 
-  image: quay.io/projectquay/golang:1.23
+  image: quay.io/projectquay/golang:1.24
   script:
     - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /usr/local/bin latest
     - golangci-lint run --timeout=3m
