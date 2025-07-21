@@ -4,7 +4,7 @@ go 1.23.0
 
 require (
 	github.com/BurntSushi/toml v1.4.0
-	github.com/RedHatInsights/insights-operator-utils v1.25.15
+	github.com/RedHatInsights/insights-operator-utils v1.26.0
 	github.com/RedHatInsights/insights-results-types v1.23.5
 	github.com/go-yaml/yaml v2.1.0+incompatible
 	github.com/gorilla/mux v1.8.1
@@ -20,7 +20,6 @@ require (
 require (
 	github.com/IBM/sarama v1.45.2 // indirect
 	github.com/RedHatInsights/cloudwatch v0.0.0-20210111105023-1df2bdfe3291 // indirect
-	github.com/RedHatInsights/kafka-zerolog v1.0.0 // indirect
 	github.com/archdx/zerolog-sentry v1.8.5 // indirect
 	github.com/aws/aws-sdk-go v1.55.7 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -70,7 +69,6 @@ require (
 	github.com/prometheus/procfs v0.17.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20250401214520-65e299d6c5c9 // indirect
 	github.com/sagikazarmark/locafero v0.9.0 // indirect
-	github.com/segmentio/kafka-go v0.4.48 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.14.0 // indirect
 	github.com/spf13/cast v1.9.2 // indirect
