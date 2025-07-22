@@ -3,7 +3,7 @@ module redhat.com/content-service
 go 1.23.0
 
 require (
-	github.com/BurntSushi/toml v1.4.0
+	github.com/BurntSushi/toml v1.5.0
 	github.com/RedHatInsights/insights-operator-utils v1.26.0
 	github.com/RedHatInsights/insights-results-types v1.23.5
 	github.com/go-yaml/yaml v2.1.0+incompatible
