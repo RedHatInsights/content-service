@@ -7,14 +7,14 @@ Content service for Insights rules groups, tags, and content.
 
 <!-- vim-markdown-toc GFM -->
 
-* [Description](#description)
-* [Documentation](#documentation)
-* [Usage](#usage)
-* [Makefile targets](#makefile-targets)
-* [BDD tests](#bdd-tests)
-* [Definition of Done for new features and fixes](#definition-of-done-for-new-features-and-fixes)
-* [Contribution](#contribution)
-* [Package manifest](#package-manifest)
+- [Insights Content Service](#insights-content-service)
+  - [Description](#description)
+  - [Documentation](#documentation)
+  - [Usage](#usage)
+  - [Makefile targets](#makefile-targets)
+  - [BDD tests](#bdd-tests)
+  - [Definition of Done for new features and fixes](#definition-of-done-for-new-features-and-fixes)
+  - [Contribution](#contribution)
 
 <!-- vim-markdown-toc -->
 
@@ -104,7 +104,3 @@ Please look at [DoD.md](DoD.md) document for definition of done for new features
 
 Please look into document [CONTRIBUTING.md](CONTRIBUTING.md) that contains all information about how to
 contribute to this project.
-
-## Package manifest
-
-Package manifest is available at [docs/manifest.txt](docs/manifest.txt).

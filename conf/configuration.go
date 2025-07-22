@@ -68,7 +68,6 @@ type ConfigStruct struct {
 	Logging           logger.LoggingConfiguration       `mapstructure:"logging" toml:"logging"`
 	CloudWatch        logger.CloudWatchConfiguration    `mapstructure:"cloudwatch" toml:"cloudwatch"`
 	SentryLoggingConf logger.SentryLoggingConfiguration `mapstructure:"sentry" toml:"sentry"`
-	KafkaZerologConf  logger.KafkaZerologConfiguration  `mapstructure:"kafka_zerolog" toml:"kafka_zerolog"`
 }
 
 // Config has exactly the same structure as *.toml file
@@ -190,11 +189,6 @@ func GetCloudWatchConfiguration() logger.CloudWatchConfiguration {
 // GetSentryLoggingConfiguration returns the sentry log configuration
 func GetSentryLoggingConfiguration() logger.SentryLoggingConfiguration {
 	return Config.SentryLoggingConf
-}
-
-// GetKafkaZerologConfiguration returns the kafkazero log configuration
-func GetKafkaZerologConfiguration() logger.KafkaZerologConfiguration {
-	return Config.KafkaZerologConf
 }
 
 // checkIfFileExists returns nil if path doesn't exist or isn't a file,
