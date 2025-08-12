@@ -53,8 +53,6 @@ objects:
               value: ${LOGGING_TO_CLOUD_WATCH_ENABLED}
             - name: INSIGHTS_CONTENT_SERVICE__CLOUDWATCH__DEBUG
               value: ${CLOUDWATCH_DEBUG}
-            - name: INSIGHTS_CONTENT_SERVICE__CLOUDWATCH__CREATE_STREAM_IF_NOT_EXISTS
-              value: ${CREATE_STREAM_IF_NOT_EXISTS}
             - name: INSIGHTS_CONTENT_SERVICE__CLOUDWATCH__AWS_REGION
               valueFrom:
                 secretKeyRef:
@@ -176,8 +174,6 @@ parameters:
 - name: CLOUDWATCH_DEBUG
   value: "false"
   required: true
-- name: CREATE_STREAM_IF_NOT_EXISTS
-  value: "true"
 - name: REPLICAS
   description: The number of replicas to use in the deployment
   value: "1"
