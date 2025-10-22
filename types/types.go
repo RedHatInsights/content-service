@@ -59,13 +59,13 @@ func (r ReceivedErrorKeyMetadata) ToErrorKeyMetadata(
 	returnVal.Description = r.Description
 	impactValue, found := impactDict[r.Impact]
 	if !found {
-		log.Warn().Str("impact", r.Impact).Msg(`impact doesn't have integer representation`)
+		log.Debug().Str("impact", r.Impact).Msg(`impact doesn't have integer representation`)
 	}
 	returnVal.Impact.Impact = impactValue
 	returnVal.Impact.Name = r.Impact
 	resolutionRiskValue, found := resolutionRiskDict[r.ResolutionRisk]
 	if !found {
-		log.Warn().Str("resolution risk", r.ResolutionRisk).Msg(`resolution_risk doesn't have integer representation`)
+		log.Debug().Str("resolution risk", r.ResolutionRisk).Msg(`resolution_risk doesn't have integer representation`)
 	}
 	returnVal.ResolutionRisk = resolutionRiskValue
 	returnVal.Likelihood = r.Likelihood

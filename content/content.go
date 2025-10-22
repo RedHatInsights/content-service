@@ -429,7 +429,7 @@ func parseRulesInDir(dirPath string, ruleType ctypes.RuleType,
 			// should never directly contain any rule content and because the name
 			// of the directory is much easier to access here without an extra call.
 			if pluginYaml, err := os.Stat(path.Join(subdirPath, PluginYAML)); err == nil && pluginYaml.Mode().IsRegular() {
-				log.Info().Str(directoryAttribute, subdirPath).Msgf("%v found", PluginYAML)
+				log.Debug().Str(directoryAttribute, subdirPath).Msgf("%v found", PluginYAML)
 
 				// let's accumulate error report with context (in which subdir it occurred)
 				ruleContent, err := parseRuleContent(subdirPath)
@@ -448,7 +448,7 @@ func parseRulesInDir(dirPath string, ruleType ctypes.RuleType,
 				updateRuleContentStatus(ruleContentStatusMap, ruleType, name, true, nil)
 			} else {
 				// Otherwise, descend into the sub-directory and see if there is any rule content.
-				log.Info().Str(directoryAttribute, subdirPath).Msg("descending into sub-directory")
+				log.Debug().Str(directoryAttribute, subdirPath).Msg("descending into sub-directory")
 				if err := parseRulesInDir(subdirPath, ruleType, contentMap, invalidRules, ruleContentStatusMap); err != nil {
 					return err
 				}
