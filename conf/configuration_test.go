@@ -137,6 +137,7 @@ func TestGetLoggingConfiguration(t *testing.T) {
 
 	loggingCfg := conf.GetLoggingConfiguration()
 	assert.True(t, loggingCfg.Debug)
+	assert.Equal(t, "info", loggingCfg.LogLevel)
 }
 
 // TestCheckIfFileExists tests the functionality of function checkIfFileExists
