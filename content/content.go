@@ -214,7 +214,7 @@ func createErrorContents(contentRead map[string][]byte) (*RuleErrorKeyContent, e
 				return nil, &MissingMandatoryFile{FileName: filename}
 			}
 
-			log.Info().Msgf("File %v is missing on error key level, using empty string instead", filename)
+			log.Debug().Msgf("File %v is missing on error key level, using empty string instead", filename)
 		}
 
 		if filename == MetadataYAML {
@@ -295,7 +295,7 @@ func createRuleContent(contentRead map[string][]byte, errorKeys map[string]RuleE
 				return nil, &MissingMandatoryFile{FileName: filename}
 			}
 
-			log.Info().Msgf("File %v is missing on plugin level, using empty string instead", filename)
+			log.Debug().Msgf("File %v is missing on plugin level, using empty string instead", filename)
 		}
 
 		if filename == PluginYAML {
