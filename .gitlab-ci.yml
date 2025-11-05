@@ -3,6 +3,12 @@ include:
     ref: master
     file: /ccx-lib.yml
 
+variables:
+    KUBERNETES_CPU_REQUEST: "1"        
+    KUBERNETES_CPU_LIMIT: "2"          
+    KUBERNETES_MEMORY_REQUEST: "2Gi"   
+    KUBERNETES_MEMORY_LIMIT: "4Gi" 
+
 stages:
   - lint
   - test
