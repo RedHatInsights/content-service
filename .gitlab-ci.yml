@@ -114,7 +114,7 @@ bdd-tests:
       artifacts: true
 
   tags:
-    - shared-podman-debug
+    - itup-alm-x86
 
 get-rules:
   stage: test
