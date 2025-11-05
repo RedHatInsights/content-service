@@ -135,8 +135,6 @@ bdd-tests:
     - job: get-rules
       artifacts: true
 
-  tags:
-    - itup-alm-x86
 
 get-rules:
   stage: test
