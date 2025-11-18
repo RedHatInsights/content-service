@@ -39,8 +39,8 @@ golangci-lint:
     # variables for the runner
     KUBERNETES_CPU_REQUEST: "1"
     KUBERNETES_CPU_LIMIT: "2"
-    KUBERNETES_MEMORY_LIMIT: "500Mi"
-
+    KUBERNETES_MEMORY_REQUEST: "500Mi"
+    KUBERNETES_MEMORY_LIMIT: "1Gi"
 
   image: registry.access.redhat.com/ubi9/go-toolset:latest
   script:
