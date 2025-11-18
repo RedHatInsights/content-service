@@ -44,7 +44,7 @@ golangci-lint:
 
   image: registry.access.redhat.com/ubi9/go-toolset:latest
   script:
-    - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /usr/local/bin latest
+    - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /opt/app-root/bin latest
     - golangci-lint run --timeout=5m
 
 gotest:
