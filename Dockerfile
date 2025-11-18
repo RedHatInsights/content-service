@@ -18,10 +18,10 @@ COPY . .
 
 USER 0
 
+ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /etc/pki/ca-trust/source/anchors/Current-IT-Root-CAs.pem
+
 # clone rules content repository and build the content service
-RUN curl -ksL https://certs.corp.redhat.com/certs/2015-IT-Root-CA.pem -o /etc/pki/ca-trust/source/anchors/RH-IT-Root-CA.crt && \
-    curl -ksL https://certs.corp.redhat.com/certs/2022-IT-Root-CA.pem -o /etc/pki/ca-trust/source/anchors/2022-IT-Root-CA.pem && \
-    update-ca-trust && \
+RUN update-ca-trust && \
     umask 0022 && \
     git config --global --add safe.directory /opt/app-root/src && \
     make build && \
