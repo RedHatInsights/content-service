@@ -36,11 +36,16 @@ golangci-lint:
 
   variables:
     GOFLAGS: -buildvcs=false
+    # variables for the runner
+    KUBERNETES_CPU_REQUEST: "1"
+    KUBERNETES_CPU_LIMIT: "2"
+    KUBERNETES_MEMORY_REQUEST: "1Gi"
+    KUBERNETES_MEMORY_LIMIT: "2Gi"
 
-  image: quay.io/projectquay/golang:1.23
+  image: registry.access.redhat.com/ubi9/go-toolset:latest
   script:
-    - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /usr/local/bin latest
-    - golangci-lint run --timeout=3m
+    - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b /opt/app-root/bin latest
+    - golangci-lint run --timeout=5m --concurrency=2 -v
 
 gotest:
   stage: test
@@ -54,6 +59,11 @@ gotest:
 
   variables:
     GIT_DEPTH: 0
+    # variables for the runner
+    KUBERNETES_CPU_REQUEST: "500m"
+    KUBERNETES_CPU_LIMIT: "1"
+    KUBERNETES_MEMORY_REQUEST: "750Mi"
+    KUBERNETES_MEMORY_LIMIT: "2Gi"
 
   image: quay.io/projectquay/golang:${GOLANG_VERSION}
   script:
@@ -90,6 +100,13 @@ integration-tests:
     - git config --global --add safe.directory `pwd`
     - ./build.sh --test-rules-only
     - ./test.sh
+    
+  variables:
+    # variables for the runner
+    KUBERNETES_CPU_REQUEST: "500m"
+    KUBERNETES_CPU_LIMIT: "1"
+    KUBERNETES_MEMORY_REQUEST: "750Mi"
+    KUBERNETES_MEMORY_LIMIT: "2Gi"
 
 bdd-tests:
   stage: test
