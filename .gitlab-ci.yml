@@ -119,6 +119,11 @@ bdd-tests:
     PATH_TO_LOCAL_CONTENT_SERVICE: "$CI_PROJECT_DIR"
     BDD_PATH: /insights-behavioral-spec
     VIRTUAL_ENV: /insights-behavioral-spec-venv/
+    # variables for the runner
+    KUBERNETES_CPU_REQUEST: "1"
+    KUBERNETES_CPU_LIMIT: "2"
+    KUBERNETES_MEMORY_REQUEST: "2Gi"
+    KUBERNETES_MEMORY_LIMIT: "4Gi"
 
   script:
     - cd $BDD_PATH
@@ -131,7 +136,7 @@ bdd-tests:
       artifacts: true
 
   tags:
-    - shared-podman-debug
+    - itup-alm-x86
 
 get-rules:
   stage: test
