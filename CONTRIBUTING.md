@@ -17,16 +17,16 @@ Please try to follow [Style guideline for Go packages](https://rakyll.org/style-
 Before you submit your pull request consider the following guidelines:
 
 * Fork the repository and clone your fork
-  * open the following URL in your browser: <https://redhat.com/content-service>
+  * open the following URL in your browser: <https://github.com/RedHatInsights/content-service>
   * click on the 'Fork' button (near the top right corner)
   * select the account for fork
-  * open your forked repository in browser: <https://redhat.com/YOUR_NAME/content-service>
+  * open your forked repository in browser: <https://github.com/YOUR_NAME/content-service>
   * click on the 'Clone or download' button to get a command that can be used to clone the repository
 
 * Make your changes in a new git branch:
 
   ```shell
-  git checkout -b bug/my-fix-branch master
+  git checkout -b bug/my-fix-branch main
   ```
 
 * Create your patch, **ideally including appropriate test cases**
@@ -41,7 +41,7 @@ Before you submit your pull request consider the following guidelines:
   git push origin bug/my-fix-branch
   ```
 
-* When opening a pull request, select the `master` branch as a base.
+* When opening a pull request, select the `main` branch as a base.
 * Mark your pull request with **[WIP]** (Work In Progress) to get feedback but prevent merging (e.g. [WIP] Update CONTRIBUTING.md)
 * If we suggest changes then:
   * Make the required updates
@@ -50,7 +50,7 @@ Before you submit your pull request consider the following guidelines:
     * Or rebase your branch and force push to your GitLab repository:
 
     ```shell
-    git rebase -i master
+    git rebase -i main
     git push -f origin bug/my-fix-branch
     ```
 

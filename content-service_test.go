@@ -27,8 +27,8 @@ import (
 
 	"github.com/tisnik/go-capture"
 
-	main "redhat.com/content-service"
-	"redhat.com/content-service/conf"
+	main "github.com/RedHatInsights/content-service"
+	"github.com/RedHatInsights/content-service/conf"
 )
 
 // checkStandardOutputStatus tests whether the standard output capturing was successful

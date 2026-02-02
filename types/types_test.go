@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	internal_types "redhat.com/content-service/types"
+	internal_types "github.com/RedHatInsights/content-service/types"
 )
 
 func TestToErrorKeyMetadata(t *testing.T) {

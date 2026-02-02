@@ -25,9 +25,9 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"redhat.com/content-service/content"
-	"redhat.com/content-service/server"
-	"redhat.com/content-service/tests/helpers"
+	"github.com/RedHatInsights/content-service/content"
+	"github.com/RedHatInsights/content-service/server"
+	"github.com/RedHatInsights/content-service/tests/helpers"
 )
 
 var config = server.Configuration{
