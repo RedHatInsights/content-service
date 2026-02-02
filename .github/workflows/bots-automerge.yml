@@ -1,4 +1,4 @@
-# Set as automatically merge all the pull requests created by dependabot[bot], red-hat-konflux[bot], InsightsDroid.
+# Set as automatically merge all the pull requests created by bots
 name: Bots auto-merge
 on: pull_request
 
@@ -10,18 +10,34 @@ permissions:
 jobs:
   bot-automerge:
     runs-on: ubuntu-latest
-    # Check the pull request author.
+    # Check if the pull request is from Konflux bot with mintmaker branch and not from a fork
     if: |
-      github.event.pull_request.user.login == 'dependabot[bot]' ||
-      github.event.pull_request.user.login == 'red-hat-konflux[bot]' ||
-      github.event.pull_request.user.login == 'InsightsDroid'
+      github.event.pull_request.user.login == 'red-hat-konflux[bot]' &&
+      startsWith(github.event.pull_request.head.ref, 'konflux/mintmaker/main/') &&
+      github.event.pull_request.head.repo.full_name == github.repository
     steps:
+      - name: Validate branch name pattern
+        run: |
+          # Only allow konflux/mintmaker/main/* where * contains no slashes
+          # This prevents branches like konflux/mintmaker/main/python-deps/mydeps
+          if ! echo "$BRANCH_NAME" | grep -qE '^konflux/mintmaker/main/[a-zA-Z0-9._-]+$'; then
+            echo "Branch $BRANCH_NAME doesn't match allowed pattern konflux/mintmaker/main/* (no additional slashes allowed)."
+            exit 1
+          fi
+        env:
+          BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+
       # NOTE: PR approval does not work on PRs from forks
       - name: Github Actions bot approves the PR
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{ github.token }}
+      - name: InsightsDroid approves the PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{secrets.INSIGHTSDROID_TOKEN}}
       - name: Enable auto-merge for PR
         run: gh pr merge --auto --merge "$PR_URL"
         env:

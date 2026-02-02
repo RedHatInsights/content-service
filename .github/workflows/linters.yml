@@ -1,0 +1,23 @@
+name: Go linters
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  golint:
+    runs-on: ubuntu-latest
+    name: Linters
+    container: registry.access.redhat.com/ubi9/go-toolset:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build project
+        run: go build
+      - name: shellcheck
+        run: make shellcheck
+      - name: ABC metrics checker
+        run: make abcgo
+      - name: JSON checker
+        run: make json-check

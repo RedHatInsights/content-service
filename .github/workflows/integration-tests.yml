@@ -1,0 +1,17 @@
+name: Integration tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    name: Integration tests
+    container: registry.access.redhat.com/ubi9/go-toolset:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build project
+        run: ./build.sh --test-rules-only
+      - name: Run tests
+        run: ./test.sh

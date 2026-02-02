@@ -1,0 +1,19 @@
+name: Go tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  gotests:
+    runs-on: ubuntu-latest
+    name: Go tests
+    container: registry.access.redhat.com/ubi9/go-toolset:latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Unit tests
+        run: make test
+      - name: Check code coverage
+        run: ./check_coverage.sh

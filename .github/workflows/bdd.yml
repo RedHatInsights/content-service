@@ -1,0 +1,29 @@
+name: BDD tests
+
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    name: BDD tests
+    container: quay.io/redhat-services-prod/obsint-processing-tenant/insights-behavioral-spec/insights-behavioral-spec:latest
+    env:
+      PATH_TO_LOCAL_CONTENT_SERVICE: "${{ github.workspace }}"
+      BDD_PATH: /insights-behavioral-spec
+      VIRTUAL_ENV: /insights-behavioral-spec-venv/
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+      - name: Build binary
+        run: make build && ln -s sample-content rules-content
+      - name: Run BDD tests
+        run: cd $BDD_PATH && make insights-content-service-tests

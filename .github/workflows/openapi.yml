@@ -1,0 +1,22 @@
+name: OpenAPI checks
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+
+jobs:
+  openapi-checks:
+    runs-on: ubuntu-latest
+    name: OpenAPI checks
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: latest
+      - name: Install tool
+        run: npm install @openapitools/openapi-generator-cli
+      - name: check openapi specs
+        run: npx openapi-generator-cli validate -i openapi.json
