@@ -6,5 +6,5 @@ nav_order: 11
 # Contributing
 
 Please, check the contribution guidelines in the
-[CONTRIBUTING.md](https://redhat.com/content-service/-/blob/master/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/RedHatInsights/content-service/-/blob/main/CONTRIBUTING.md)
 file on the repository.

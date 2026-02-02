@@ -30,7 +30,7 @@ import (
 	"github.com/go-yaml/yaml"
 	"github.com/rs/zerolog/log"
 
-	"redhat.com/content-service/types"
+	"github.com/RedHatInsights/content-service/types"
 )
 
 // Logging messages

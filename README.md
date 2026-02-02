@@ -1,7 +1,7 @@
 # Insights Content Service
 
 [![forthebadge made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
-[![License](https://img.shields.io/badge/license-Apache-blue)](https://redhat.com/content-service/-/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache-blue)](https://github.com/RedHatInsights/content-service/-/blob/main/LICENSE)
 
 Content service for Insights rules groups, tags, and content.
 
@@ -28,8 +28,8 @@ remmediations, tags and also groups, that will be consumed primarily by
 
 ## Documentation
 
-Documentation is hosted on CEE Gitlab Pages <https://ccx.pages.redhat.com/content-service/>.
-Sources are located in [docs](https://redhat.com/content-service/-/tree/master/docs?ref_type=heads).
+Documentation is hosted on GitHub Pages <https://redhatinsights.github.io/content-service/>.
+Sources are located in [docs](https://github.com/RedHatInsights/content-service/-/tree/main/docs?ref_type=heads).
 
 ## Usage
 

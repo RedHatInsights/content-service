@@ -24,7 +24,7 @@ limitations under the License.
 // configuration options.
 //
 // Generated documentation is available at:
-// https://godoc.org/redhat.com/content-service/conf
+//  https://godoc.org/github.com/RedHatInsights/content-service/conf
 //
 // Documentation in literate-programming-style is available at:
 // https://redhatinsights.github.io/insights-content-service/packages/conf/configuration.html
@@ -43,8 +43,8 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
 
-	"redhat.com/content-service/groups"
-	"redhat.com/content-service/server"
+	"github.com/RedHatInsights/content-service/groups"
+	"github.com/RedHatInsights/content-service/server"
 )
 
 const (

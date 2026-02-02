@@ -28,10 +28,10 @@ import (
 	"github.com/RedHatInsights/insights-operator-utils/metrics"
 	"github.com/rs/zerolog/log"
 
-	"redhat.com/content-service/conf"
-	"redhat.com/content-service/content"
-	"redhat.com/content-service/groups"
-	"redhat.com/content-service/server"
+	"github.com/RedHatInsights/content-service/conf"
+	"github.com/RedHatInsights/content"
+	"github.com/RedHatInsights/groups"
+	"github.com/RedHatInsights/server"
 )
 
 // ExitCode represents numeric value returned to parent process when the
@@ -74,7 +74,7 @@ var (
 	UtilsVersion = "*not set*"
 
 	// OCPRulesVersion contains currently used version of
-	// https://redhat.com/ccx-rules-ocp package
+	// ccx-rules-ocp package
 	OCPRulesVersion = "*not set*"
 )
 

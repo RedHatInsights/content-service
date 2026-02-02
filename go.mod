@@ -1,4 +1,4 @@
-module redhat.com/content-service
+module github.com/RedHatInsights/content-service
 
 go 1.24.0
 
