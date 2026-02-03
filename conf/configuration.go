@@ -24,7 +24,8 @@ limitations under the License.
 // configuration options.
 //
 // Generated documentation is available at:
-//  https://godoc.org/github.com/RedHatInsights/content-service/conf
+//
+//	https://godoc.org/github.com/RedHatInsights/content-service/conf
 //
 // Documentation in literate-programming-style is available at:
 // https://redhatinsights.github.io/insights-content-service/packages/conf/configuration.html
