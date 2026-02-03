@@ -27,10 +27,7 @@ commit=$(git rev-parse HEAD)
 
 utils_version=$(go list -m github.com/RedHatInsights/insights-operator-utils | awk '{print $2}')
 
-ocp_rules_version=$(grep "^CCX_RULES_OCP_TAG=\".*\"$" update_rules_content.sh | awk -F'CCX_RULES_OCP_TAG="|"' '{print $2}')
-
-# Update ccx-rules-ocp
-./update_rules_content.sh "$@"
+ocp_rules_version=$(awk '/AS rules-source/ {split($2, a, ":"); print a[2]}' Dockerfile)
 
 build_flags="-v"
 
