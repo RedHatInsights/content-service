@@ -29,9 +29,9 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/RedHatInsights/content-service/conf"
-	"github.com/RedHatInsights/content"
-	"github.com/RedHatInsights/groups"
-	"github.com/RedHatInsights/server"
+	"github.com/RedHatInsights/content-service/content"
+	"github.com/RedHatInsights/content-service/groups"
+	"github.com/RedHatInsights/content-service/server"
 )
 
 // ExitCode represents numeric value returned to parent process when the
