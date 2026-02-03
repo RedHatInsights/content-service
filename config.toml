@@ -7,7 +7,7 @@ api_spec_file = "openapi.json"
 path = "groups_config.yaml"
 
 [content]
-path = "rules-content"
+path = "sample-content"
 
 [metrics]
 namespace = "insights_content_service"
