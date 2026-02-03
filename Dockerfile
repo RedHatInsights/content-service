@@ -18,15 +18,13 @@ COPY . .
 
 USER 0
 
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /etc/pki/ca-trust/source/anchors/Current-IT-Root-CAs.pem
-
 # clone rules content repository and build the content service
-RUN update-ca-trust && \
-    umask 0022 && \
+RUN umask 0022 && \
     git config --global --add safe.directory /opt/app-root/src && \
     make build && \
-    chmod a+x content-service && \
-    ./update_rules_content.sh
+    chmod a+x content-service
+
+FROM quay.io/redhat-services-prod/obsint-processing-tenant/rules-containers/rules-containers-private:2026.01.27 AS rules-source
 
 FROM registry.access.redhat.com/ubi9/ubi-micro:latest
 
@@ -35,11 +33,7 @@ COPY --from=builder /opt/app-root/src/openapi.json /openapi/openapi.json
 COPY --from=builder /opt/app-root/src/groups_config.yaml /groups/groups_config.yaml
 
 # copy just the rule content instead of the whole ocp-rules repository
-COPY --from=builder /opt/app-root/src/rules-content /rules-content
-
-# copy the certificates from builder image
-COPY --from=builder /etc/ssl /etc/ssl
-COPY --from=builder /etc/pki /etc/pki
+COPY --from=rules-source /app/content/content /rules-content
 
 USER 1001
 
