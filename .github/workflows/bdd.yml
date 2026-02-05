@@ -24,6 +24,6 @@ jobs:
         with:
           go-version: '1.24'
       - name: Build binary
-        run: make build && ln -s sample-content rules-content
+        run: make build
       - name: Run BDD tests
         run: cd $BDD_PATH && make insights-content-service-tests
