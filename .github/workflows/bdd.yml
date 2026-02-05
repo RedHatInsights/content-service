@@ -23,7 +23,5 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.24'
-      - name: Build binary
-        run: make build
       - name: Run BDD tests
         run: cd $BDD_PATH && make insights-content-service-tests
