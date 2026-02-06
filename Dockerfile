@@ -32,6 +32,10 @@ COPY --from=builder /opt/app-root/src/content-service .
 COPY --from=builder /opt/app-root/src/openapi.json /openapi/openapi.json
 COPY --from=builder /opt/app-root/src/groups_config.yaml /groups/groups_config.yaml
 
+# copy the certificates from builder image
+COPY --from=builder /etc/ssl /etc/ssl
+COPY --from=builder /etc/pki /etc/pki
+
 # copy just the rule content instead of the whole ocp-rules repository
 COPY --from=rules-source /app/content/content /rules-content
 
