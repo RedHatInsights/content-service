@@ -17,3 +17,7 @@ jobs:
         run: make test
       - name: Check code coverage
         run: ./check_coverage.sh
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
