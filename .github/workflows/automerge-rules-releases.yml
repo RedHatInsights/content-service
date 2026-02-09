@@ -1,0 +1,44 @@
+# Automatically merge pull requests for CCX rules OCP releases created by InsightsDroid
+name: Auto-merge rules releases
+on: pull_request
+
+# This section adds write permissions to the secrets.GITHUB_TOKEN. Default is just read
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rules-automerge:
+    runs-on: ubuntu-latest
+    # Check if the pull request is from InsightsDroid with ccx-rules-ocp-* branch and not from a fork
+    if: |
+      github.event.pull_request.user.login == 'InsightsDroid' &&
+      startsWith(github.event.pull_request.head.ref, 'ccx-rules-ocp-') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Validate branch name pattern
+        run: |
+          # Only allow ccx-rules-ocp-* where * is exactly 6 alphanumeric characters
+          if ! echo "$BRANCH_NAME" | grep -qE '^ccx-rules-ocp-[a-zA-Z0-9]{6}$'; then
+            echo "Branch $BRANCH_NAME doesn't match allowed pattern ccx-rules-ocp-[6 alphanumeric chars]."
+            exit 1
+          fi
+        env:
+          BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+
+      # NOTE: PR approval does not work on PRs from forks
+      - name: Github Actions bot approves the PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{ github.token }}
+      - name: InsightsDroid approves the PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{secrets.INSIGHTSDROID_TOKEN}}
+      - name: Enable auto-merge for PR
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{ github.token }}
