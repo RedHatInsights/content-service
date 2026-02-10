@@ -24,7 +24,7 @@ RUN umask 0022 && \
     make build && \
     chmod a+x content-service
 
-FROM quay.io/redhat-services-prod/obsint-processing-tenant/rules-containers/rules-containers-private:2026.02.10 AS rules-source
+FROM quay.io/redhat-services-prod/obsint-processing-tenant/rules-containers/rules-containers-private:2026.02.10.post1 AS rules-source
 
 FROM registry.access.redhat.com/ubi9/ubi-micro:latest
 
