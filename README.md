@@ -1,4 +1,4 @@
-# Insights Content Service
+# Insights Content Service test
 
 [![forthebadge made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
 [![License](https://img.shields.io/badge/license-Apache-blue)](https://github.com/RedHatInsights/content-service/-/blob/main/LICENSE)
