@@ -29,7 +29,7 @@ import (
 	"github.com/RedHatInsights/content-service/content"
 )
 
-const errYAMLBadToken = "yaml: line 14: found character that cannot start any token"
+const errYAMLBadToken = "yaml: line 15: found character that cannot start any token"
 
 func init() {
 	zerolog.SetGlobalLevel(zerolog.WarnLevel)

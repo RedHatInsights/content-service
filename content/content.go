@@ -27,8 +27,8 @@ import (
 
 	"github.com/RedHatInsights/insights-operator-utils/collections"
 	ctypes "github.com/RedHatInsights/insights-results-types"
-	"github.com/go-yaml/yaml"
 	"github.com/rs/zerolog/log"
+	"gopkg.in/yaml.v3"
 
 	"github.com/RedHatInsights/content-service/types"
 )
