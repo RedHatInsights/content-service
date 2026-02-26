@@ -1,9 +1,3 @@
----
-title: REST API
-layout: page
-nav_order: 4
----
-
 # REST API
 
 Content service provides information about its REST API scheme via the endpoint

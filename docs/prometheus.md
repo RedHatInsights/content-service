@@ -1,9 +1,3 @@
----
-title: Prometheus API
-layout: page
-nav_order: 6
----
-
 # Prometheus API
 
 It is possible to use `/api/v1/metrics` REST API endpoint to read all metrics

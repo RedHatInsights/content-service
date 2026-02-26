@@ -1,17 +1,4 @@
----
-title: Configuration
-layout: page
-nav_order: 5
----
-
 # Configuration
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 Content service expects a toml configuration file. Default one is `config.toml`
 in working directory, but it can be overwritten by
