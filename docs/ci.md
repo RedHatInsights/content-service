@@ -1,8 +1,3 @@
----
-title: CI
-layout: page
-nav_order: 9
----
 # CI
 
 [Travis CI](https://travis-ci.org/) is configured for this repository. Several tests and checks are started for

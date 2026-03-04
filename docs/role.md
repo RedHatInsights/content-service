@@ -1,9 +1,3 @@
----
-title: Role of the service in the external data pipeline
-layout: page
-nav_order: 3
----
-
 # Role of the service in the external data pipeline
 
 The chosen architecture is architecture #3 ([architectures](./architecture/architectures.png)),

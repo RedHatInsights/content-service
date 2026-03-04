@@ -1,9 +1,3 @@
----
-title: Rule content checker
-layout: page
-nav_order: 6
----
-
 # Rule content checker
 
 A utility for checking the rule content is currently included. 

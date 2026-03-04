@@ -1,8 +1,3 @@
----
-title: Contributing
-layout: page
-nav_order: 11
----
 # Contributing
 
 Please, check the contribution guidelines in the

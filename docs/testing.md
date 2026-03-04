@@ -1,17 +1,4 @@
----
-title: Testing
-layout: page
-nav_order: 8
----
-
 # Testing
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 tl;dr: `make before_commit` will run most of the checks by magic.
 

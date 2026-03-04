@@ -1,9 +1,3 @@
----
-title: Architecture
-layout: page
-nav_order: 1
----
-
 # Architecture
 
 Content Service consists of three main parts:
