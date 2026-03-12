@@ -20,7 +20,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/go-yaml/yaml"
+	"github.com/goccy/go-yaml"
 	"github.com/rs/zerolog/log"
 )
 
