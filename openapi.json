@@ -5,7 +5,7 @@
     "description": "Insights Content Service",
     "version": "1.0.0"
   },
-  "paths": { 
+  "paths": {
     "/openapi.json": {
       "get": {
         "summary": "Returns the OpenAPI specification JSON.",

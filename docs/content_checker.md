@@ -1,6 +1,6 @@
 # Rule content checker
 
-A utility for checking the rule content is currently included. 
+A utility for checking the rule content is currently included.
 
 **DISCLAIMER**: It may be moved elsewhere in the future.
 
