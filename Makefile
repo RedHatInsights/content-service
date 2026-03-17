@@ -37,15 +37,16 @@ lint: install_golangci-lint ## Run go liting
 	golangci-lint run --fix
 
 shellcheck: ## Run shellcheck
-	./shellcheck.sh
+	@echo "Running shellcheck"
+	pre-commit run shellcheck --all-files
 
 abcgo: ## Run ABC metrics checker
 	@echo "Run ABC metrics checker"
-	./abcgo.sh
+	pre-commit run abcgo --all-files
 
 json-check: ## Check all JSONs for basic syntax
 	@echo "Run JSON checker"
-	python3 utils/json_check.py
+	pre-commit run check-json --all-files
 
 openapi-check:
 	./check_openapi.sh

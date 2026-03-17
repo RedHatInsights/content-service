@@ -127,11 +127,11 @@ namespace server {
         + Content content.RuleContentDirectory
         + Serv *http.Server
 
-        - addEndpointsToRouter(router *mux.Router) 
-        - mainEndpoint(writer http.ResponseWriter, _ *http.Request) 
-        - serveAPISpecFile(writer http.ResponseWriter, request *http.Request) 
-        - listOfGroups(writer http.ResponseWriter, request *http.Request) 
-        - getStaticContent(writer http.ResponseWriter, request *http.Request) 
+        - addEndpointsToRouter(router *mux.Router)
+        - mainEndpoint(writer http.ResponseWriter, _ *http.Request)
+        - serveAPISpecFile(writer http.ResponseWriter, request *http.Request)
+        - listOfGroups(writer http.ResponseWriter, request *http.Request)
+        - getStaticContent(writer http.ResponseWriter, request *http.Request)
 
         + Start() error
         + Stop(ctx context.Context) error

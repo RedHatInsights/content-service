@@ -4,7 +4,7 @@ tl;dr: `make before_commit` will run most of the checks by magic.
 
 The following tests can be run to test your code in `insights-content-service`.
 Detailed information about each type of test is included in the corresponding
-subsection: 
+subsection:
 
 1. Unit tests: checks behaviour of all units in source code (methods, functions)
 
