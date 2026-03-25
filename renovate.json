@@ -5,25 +5,33 @@
       "matchDatasources": ["pypi"],
       "groupName": "Python dependencies",
       "groupSlug": "python-deps",
-      "separateMajorMinor": false
+      "separateMajorMinor": false,
+      "automerge": true,
+      "platformAutomerge": true
     },
     {
       "matchManagers": ["pre-commit"],
       "groupName": "Pre-commit hooks",
       "groupSlug": "pre-commit-hooks",
-      "separateMajorMinor": false
+      "separateMajorMinor": false,
+      "automerge": true,
+      "platformAutomerge": true
     },
     {
       "matchManagers": ["gomod"],
       "groupName": "Go dependencies",
       "groupSlug": "go-deps",
-      "separateMajorMinor": false
+      "separateMajorMinor": false,
+      "automerge": true,
+      "platformAutomerge": true
     },
     {
       "matchManagers": ["github-actions"],
       "groupName": "GitHub Actions",
       "groupSlug": "github-actions",
-      "separateMajorMinor": false
+      "separateMajorMinor": false,
+      "automerge": true,
+      "platformAutomerge": true
     }
   ]
 }
