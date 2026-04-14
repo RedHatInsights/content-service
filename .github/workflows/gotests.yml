@@ -6,18 +6,12 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   gotests:
-    runs-on: ubuntu-latest
-    name: Go tests
-    container: registry.access.redhat.com/ubi9/go-toolset:latest
-    steps:
-      - uses: actions/checkout@v5
-      - name: Unit tests
-        run: make test
-      - name: Check code coverage
-        run: ./check_coverage.sh
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+    uses: RedHatInsights/processing-tools/.github/workflows/gotests.yaml@master
+    with:
+      coverage_threshold: 67
+    secrets: inherit
