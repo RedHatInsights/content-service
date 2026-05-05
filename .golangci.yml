@@ -51,6 +51,7 @@ linters:
       - path: _test\.go
         linters:
           - gosec
+          - goconst
 formatters:
   enable:
     - gofmt
