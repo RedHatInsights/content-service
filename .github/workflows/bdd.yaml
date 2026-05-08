@@ -12,3 +12,4 @@ jobs:
     uses: RedHatInsights/processing-tools/.github/workflows/bdd.yaml@master
     with:
       service: content-service
+      go_version: "1.25"
