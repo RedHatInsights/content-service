@@ -18,7 +18,7 @@ require (
 )
 
 require (
-	github.com/IBM/sarama v1.48.0 // indirect
+	github.com/IBM/sarama v1.48.1 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.41.7 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.10 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.32.17 // indirect
