@@ -10,7 +10,7 @@ jobs:
     name: Integration tests
     container: registry.access.redhat.com/ubi9/go-toolset:latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Build project
         run: ./build.sh
       - name: Run tests
